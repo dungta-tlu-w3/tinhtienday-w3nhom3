@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/tinhtienday-w3nhom3/static/css/main.8422cd95.css",
+    "main.js": "/tinhtienday-w3nhom3/static/js/main.995aca83.js",
+    "index.html": "/tinhtienday-w3nhom3/index.html",
+    "main.8422cd95.css.map": "/tinhtienday-w3nhom3/static/css/main.8422cd95.css.map",
+    "main.995aca83.js.map": "/tinhtienday-w3nhom3/static/js/main.995aca83.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8422cd95.css",
+    "static/js/main.995aca83.js"
+  ]
+}
