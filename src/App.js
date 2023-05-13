@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import GiaoVien from "./components/GiaoVien/GiaoVien";
 import TinhTien from "./components/TinhTien/TinhTien";
 import MonHoc from "./components/MonHoc/MonHoc";
+import DanhSachGiaoVien from "./components/DanhSachGiaoVien/DanhSachGiaoVien";
 
 export default function App() {
   const [tienDayChuan, setTienDayChuan] = useState("");
@@ -50,7 +51,7 @@ export default function App() {
         />
       </div>
     );
-  } else {
+  } else if (tab === 2) {
     return (
       <div className="h-screen w-screen bg-[#e8e8e8] font-roboto">
         <Navbar
@@ -75,5 +76,17 @@ export default function App() {
         />
       </div>
     );
+  } else {
+    return (
+      <div className="h-screen w-screen bg-[#e8e8e8] font-roboto">
+        <Navbar
+          tienDayChuan={tienDayChuan}
+          setTienDayChuan={setTienDayChuan}
+          setTab={setTab}
+        />
+
+        <DanhSachGiaoVien />
+      </div>
+    )
   }
 }

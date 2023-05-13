@@ -35,12 +35,51 @@ function MonHoc({
     setMonHoc(newList);
 
     let newSum = sum;
-    newSum +=
-      Math.round(Number(soTiet.current.value) *
-      (Number(giaoVien.heSoGiaoVien) +
-        Number(heSoMonHoc.current.value) + heSo * Number(tienDayChuan)))
+    newSum += Math.round(
+      Number(soTiet.current.value) *
+        (Number(giaoVien.heSoGiaoVien) +
+          Number(heSoMonHoc.current.value) +
+          heSo) *
+        Number(tienDayChuan)
+    );
 
     setSum(newSum);
+    if (localStorage.getItem("danhSachGiaoVien") === null) {
+      localStorage.setItem('danhSachGiaoVien', JSON.stringify([]))
+    }
+    let danhSachGiaoVien = JSON.parse(localStorage.getItem("danhSachGiaoVien"));
+
+    if (danhSachGiaoVien.length !== 0) {
+      let flag = false;
+      for (let i = 0; i < danhSachGiaoVien.length; i++) {
+        if (danhSachGiaoVien[i].maSo === giaoVien.maSo) {
+          danhSachGiaoVien[i].tienLuong = newSum;
+          flag = true;
+          break;
+        }
+      }
+      if (flag === false) {
+        danhSachGiaoVien.push({
+          tenGiaoVien: giaoVien.hoTen,
+          maSo: giaoVien.maSo,
+          tienLuong: newSum,
+        });
+      }
+    } else {
+      danhSachGiaoVien.push({
+        tenGiaoVien: giaoVien.hoTen,
+        maSo: giaoVien.maSo,
+        tienLuong: newSum,
+      })
+    }
+    console.log('danhsach', danhSachGiaoVien)
+    // danhSachGiaoVien.push({
+    //   tenGiaoVien: giaoVien.hoTen,
+    //   maSo: giaoVien.maSo,
+    //   tienLuong: newSum
+    // })
+    localStorage.setItem("danhSachGiaoVien", JSON.stringify(danhSachGiaoVien));
+
     //   sum +
     //   Math.round(
     //     Number(soTiet.current.value) *
